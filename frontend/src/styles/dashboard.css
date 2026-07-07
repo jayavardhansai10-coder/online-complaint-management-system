@@ -1,0 +1,52 @@
+body{
+    background:#f4f7fb;
+    font-family:'Segoe UI',sans-serif;
+}
+
+.card{
+    border-radius:18px;
+}
+
+.dashboard-card{
+    transition:.3s;
+}
+
+.dashboard-card:hover{
+    transform:translateY(-8px);
+}
+
+.table{
+    border-radius:12px;
+    overflow:hidden;
+}
+
+.table thead{
+    background:#0d6efd;
+    color:white;
+}
+
+.table tbody tr:hover{
+    background:#f3f8ff;
+}
+
+.badge{
+    font-size:13px;
+    padding:8px 14px;
+}
+
+.card-header{
+    font-weight:600;
+    font-size:18px;
+}
+
+.btn{
+    border-radius:8px;
+}
+
+.navbar{
+    box-shadow:0 2px 15px rgba(0,0,0,.08);
+}
+
+.sidebar{
+    box-shadow:3px 0 15px rgba(0,0,0,.08);
+}

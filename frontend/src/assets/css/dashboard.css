@@ -1,0 +1,34 @@
+body{
+    background:#f4f7fc;
+}
+
+.card{
+    border:none;
+    border-radius:15px;
+}
+
+.card:hover{
+    transform:translateY(-4px);
+    transition:.3s;
+}
+
+.sidebar-link{
+    color:white;
+    display:block;
+    padding:12px;
+    border-radius:10px;
+    text-decoration:none;
+}
+
+.sidebar-link:hover{
+    background:#0d6efd;
+}
+
+.table{
+    border-radius:10px;
+    overflow:hidden;
+}
+
+.navbar{
+    box-shadow:0 3px 10px rgba(0,0,0,.15);
+}
