@@ -19,9 +19,10 @@ function MyComplaints() {
   const [search, setSearch] = useState("");
   const [loading, setLoading] = useState(true);
 
-  useEffect(() => {
-    loadComplaints();
-  }, [search]);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+useEffect(() => {
+  loadComplaints();
+}, [search]);
 
   const loadComplaints = async () => {
     try {

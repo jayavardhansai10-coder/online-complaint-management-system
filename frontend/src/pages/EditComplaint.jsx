@@ -15,10 +15,10 @@ function EditComplaint() {
     description: "",
   });
 
-  useEffect(() => {
-    loadComplaint();
-  }, []);
-
+ // eslint-disable-next-line react-hooks/exhaustive-deps
+useEffect(() => {
+  loadComplaint();
+}, []);
   const loadComplaint = async () => {
     try {
       const res = await getComplaintById(id);
