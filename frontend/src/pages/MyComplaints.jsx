@@ -86,10 +86,129 @@ function MyComplaints() {
   };
 
   return (
-    <MainLayout>
-      {/* Keep the remaining JSX exactly the same */}
-    </MainLayout>
-  );
+  <MainLayout>
+    <div className="container mt-4">
+
+      <h2 className="fw-bold mb-4">My Complaints</h2>
+
+      <div className="mb-3">
+        <input
+          type="text"
+          className="form-control"
+          placeholder="Search by Title or Category..."
+          value={search}
+          onChange={(e) => setSearch(e.target.value)}
+        />
+      </div>
+
+      <div className="card shadow">
+        <div className="card-body">
+
+          {loading ? (
+
+            <h5 className="text-center">
+              Loading...
+            </h5>
+
+          ) : complaints.length === 0 ? (
+
+            <h5 className="text-center text-muted">
+              No Complaints Found
+            </h5>
+
+          ) : (
+
+            <table className="table table-hover">
+
+              <thead className="table-dark">
+                <tr>
+                  <th>Title</th>
+                  <th>Category</th>
+                  <th>Status</th>
+                  <th width="250">Actions</th>
+                </tr>
+              </thead>
+
+              <tbody>
+
+                {complaints.map((item) => (
+
+                  <tr key={item._id}>
+
+                    <td>{item.title}</td>
+
+                    <td>{item.category}</td>
+
+                    <td>
+                      <span
+                        className={`badge ${
+                          item.status === "Resolved"
+                            ? "bg-success"
+                            : item.status === "Pending"
+                            ? "bg-warning text-dark"
+                            : item.status === "Assigned"
+                            ? "bg-primary"
+                            : "bg-info"
+                        }`}
+                      >
+                        {item.status}
+                      </span>
+                    </td>
+
+                    <td>
+
+                      <Link
+                        to={`/complaint/${item._id}`}
+                        className="btn btn-primary btn-sm me-2"
+                      >
+                        <FaEye />
+                      </Link>
+
+                      {item.status === "Pending" && (
+                        <Link
+                          to={`/edit/${item._id}`}
+                          className="btn btn-warning btn-sm me-2"
+                        >
+                          <FaEdit />
+                        </Link>
+                      )}
+
+                      {item.status === "Resolved" && (
+                        <Link
+                          to={`/feedback/${item._id}`}
+                          className="btn btn-success btn-sm me-2"
+                        >
+                          <FaStar />
+                        </Link>
+                      )}
+
+                      {item.status === "Pending" && (
+                        <button
+                          className="btn btn-danger btn-sm"
+                          onClick={() => removeComplaint(item._id)}
+                        >
+                          <FaTrash />
+                        </button>
+                      )}
+
+                    </td>
+
+                  </tr>
+
+                ))}
+
+              </tbody>
+
+            </table>
+
+          )}
+
+        </div>
+      </div>
+
+    </div>
+  </MainLayout>
+);
 }
 
 export default MyComplaints;
