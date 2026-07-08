@@ -18,19 +18,12 @@ function MyComplaints() {
   const [complaints, setComplaints] = useState([]);
   const [search, setSearch] = useState("");
   const [loading, setLoading] = useState(true);
-
-  // eslint-disable-next-line react-hooks/exhaustive-deps
 useEffect(() => {
-  loadComplaints();
-}, [search]);
-
   const loadComplaints = async () => {
     try {
       setLoading(true);
 
       const res = await getComplaints(search);
-
-      console.log(res.data);
 
       if (res.data.success) {
         setComplaints(res.data.complaints);
@@ -48,6 +41,11 @@ useEffect(() => {
       setLoading(false);
     }
   };
+
+  loadComplaints();
+}, [search]);
+
+
 
   const removeComplaint = async (id) => {
     const result = await Swal.fire({

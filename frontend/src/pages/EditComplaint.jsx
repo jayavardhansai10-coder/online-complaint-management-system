@@ -15,23 +15,23 @@ function EditComplaint() {
     description: "",
   });
 
- // eslint-disable-next-line react-hooks/exhaustive-deps
-useEffect(() => {
-  loadComplaint();
-}, []);
+ useEffect(() => {
   const loadComplaint = async () => {
     try {
       const res = await getComplaintById(id);
 
-     setForm({
-  title: res.data.complaint.title,
-  category: res.data.complaint.category,
-  description: res.data.complaint.description,
-});
+      setForm({
+        title: res.data.complaint.title,
+        category: res.data.complaint.category,
+        description: res.data.complaint.description,
+      });
     } catch (err) {
       console.log(err);
     }
   };
+
+  loadComplaint();
+}, [id]);
 
   const changeHandler = (e) => {
     setForm({
