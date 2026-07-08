@@ -2,8 +2,7 @@ import axios from "axios";
 
 const API = axios.create({
   baseURL:
-    process.env.REACT_APP_API_URL ||
-    "https://online-complaint-management-system-1-6vd8.onrender.com/api",
+    (process.env.REACT_APP_API_URL || "http://localhost:5000") + "/api",
 });
 
 API.interceptors.request.use((config) => {
