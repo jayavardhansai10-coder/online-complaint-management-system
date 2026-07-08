@@ -1,12 +1,24 @@
 # Dependencies
 node_modules/
+**/node_modules/
 
-# Environment
+# Environment files
 .env
+backend/.env
+frontend/.env
 
 # Build folders
 build/
 dist/
+frontend/build/
 
 # Cache
 .cache/
+
+# Logs
+*.log
+npm-debug.log*
+
+# OS files
+.DS_Store
+Thumbs.db
