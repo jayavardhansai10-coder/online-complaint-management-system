@@ -1,16 +1,10 @@
 import { io } from "socket.io-client";
 
-const getSocketURL = () => {
-  if (process.env.REACT_APP_API_URL) {
-    return process.env.REACT_APP_API_URL;
-  }
-  if (process.env.NODE_ENV === "production") {
-    return window.location.origin;
-  }
-  return "http://localhost:5000";
-};
+const SOCKET_URL =
+  process.env.REACT_APP_API_URL ||
+  "https://online-complaint-management-system-1-6vd8.onrender.com";
 
-const socket = io(getSocketURL(), {
+const socket = io(SOCKET_URL, {
   transports: ["websocket"],
 });
 

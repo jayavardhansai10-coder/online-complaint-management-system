@@ -1,17 +1,9 @@
 import axios from "axios";
 
-const getBaseURL = () => {
-  if (process.env.REACT_APP_API_URL) {
-    return process.env.REACT_APP_API_URL;
-  }
-  if (process.env.NODE_ENV === "production") {
-    return window.location.origin;
-  }
-  return "http://localhost:5000";
-};
-
 const API = axios.create({
-  baseURL: getBaseURL() + "/api",
+  baseURL:
+    process.env.REACT_APP_API_URL ||
+    "https://online-complaint-management-system-1-6vd8.onrender.com/api",
 });
 
 API.interceptors.request.use((config) => {
