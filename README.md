@@ -162,10 +162,3 @@ REACT_APP_API_URL=http://localhost:5000
 
 ---
 
-## Author
-
-**Rasool Baig**
-
-B.Tech Computer Science and Engineering
-
-Seshadri Rao Gudlavalleru Engineering College
