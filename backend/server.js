@@ -22,6 +22,13 @@ app.use(express.urlencoded({ extended: true }));
 
 app.use("/uploads", express.static("uploads"));
 
+app.get("/", (req, res) => {
+  res.json({
+    success: true,
+    message: "Online Complaint Management System API is running successfully."
+  });
+});
+
 app.use("/api/auth", require("./routes/authRoutes"));
 app.use("/api/complaints", require("./routes/complaintRoutes"));
 app.use("/api/admin", require("./routes/adminRoutes"));
